@@ -1,5 +1,6 @@
+---------------------------------------------------
 #IMPORTING MODULS
-
+---------------------------------------------------
 import numpy as np
 import pandas as pd
 import statsmodels.api as sm
@@ -10,7 +11,9 @@ import matplotlib.pyplot as plt
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 
+---------------------------------------------------
 #GENERATING OBJECTS
+---------------------------------------------------
 
 def generate_object_data(object_type, n=100):
     data = []
@@ -120,7 +123,9 @@ all_data = np.vstack([
     
 ])
 
+---------------------------------------------------
 #TRANSFORMING THE OBJECTS INTO DATAFRAME
+---------------------------------------------------
 
 columns = ['mass', 'spin', 'p_x', 'p_y', 'p_z',
            'curvature_scalar', 'quantum_fluctuation_strength',
@@ -129,7 +134,9 @@ columns = ['mass', 'spin', 'p_x', 'p_y', 'p_z',
 df = pd.DataFrame(all_data, columns=columns)
 object_dataset = df.copy()
 
+---------------------------------------------------
 #MODEL TRAINING
+---------------------------------------------------
 
 X = object_dataset.drop("label", axis = 1)
 y = object_dataset["label"]
@@ -137,12 +144,16 @@ X_train,X_test,y_train,y_test = train_test_split(X,y,test_size=0.25,random_state
 rf_model = RandomForestClassifier().fit(X_train,y_train)
 y_pred = rf_model.predict(X_test)
 
+---------------------------------------------------
 #MODEL EVALUATION OF NON-TUNED MODEL
+---------------------------------------------------
 
 accuracy_score(y_test,y_pred)    # Equals 1.
 cross_val_score(rf_model,X_train,y_train,cv = 10).mean()     # Equals 1.
 
+---------------------------------------------------
 #MODEL TUNING
+---------------------------------------------------
 
 rf_params = {"max_depth":np.arange(1,10),
              "max_features":np.arange(1,10),
@@ -156,7 +167,9 @@ rf_tuned = RandomForestClassifier(max_depth=rf_cv.best_params_["max_depth"],
                                   min_samples_split= rf_cv.best_params_["min_samples_split"]).fit(X_train,y_train)
 y_pred = rf_tuned.predict(X_test)
 
+---------------------------------------------------
 #MODEL EVALUATION OF TUNED MODEL
+---------------------------------------------------
 
 accuracy_score(y_test,y_pred)  # Equals 0.999.
 cross_val_score(rf_tuned,X_train,y_train,cv=10).mean()  # Equals 1.
