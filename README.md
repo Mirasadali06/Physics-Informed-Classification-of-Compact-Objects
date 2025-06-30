@@ -1,16 +1,11 @@
-🌀 Physics-Informed Classification of Compact Objects
+🎯 Physics-Informed Classification of Compact Objects
 
-A machine learning pipeline for classifying relativistic and quantum-scale compact objects using synthetic physical data.
+This project develops a machine learning system to classify astrophysical and theoretical objects based on synthetic data that reflects physical properties such as spacetime curvature, quantum fluctuations, momentum, and more.
 
-📘 Project Description
+-----------------------------------------------
+📁 Dataset Description
 
-This project aims to classify astrophysical and theoretical objects (such as black holes, neutron stars, white dwarfs, etc.) using synthetic features grounded in physical principles. We simulate objects' properties like mass, spin, momentum, spacetime curvature, quantum fluctuations, and more, and train a variety of machine learning models to accurately predict their types.
-
-The system is entirely built upon physics-inspired synthetic data, making it both controlled and informative, while also mimicking key traits of real compact objects. This is a fusion of machine learning and theoretical physics for cosmic-scale classification.
-
-🧬 Simulated Object Types
-
-The following object types are included:
+The dataset consists of simulated astrophysical and theoretical objects, including:
 
 Schwarzschild Black Hole
 
@@ -28,150 +23,161 @@ Graviton Cluster (theoretical)
 
 Primordial Black Hole
 
-Each object is generated with statistically appropriate physical features such as:
+-----------------------------------------------
 
-mass
+Each object includes the following features:
 
-spin
+mass: simulated rest mass
 
-momentum vector (px, py, pz)
+spin: angular momentum proxy
 
-curvature_scalar: proxy for spacetime curvature
+p_x, p_y, p_z: linear momentum components
 
-quantum_fluctuation_strength
+curvature_scalar: spacetime curvature proxy
 
-hawking_temp
+quantum_fluctuation_strength: variance in local field states
 
-gw_emission: gravitational wave profile
+hawking_temp: Hawking radiation temperature (where applicable)
 
-compactness: mass-to-radius ratio approximation
+gw_emission: gravitational wave emission strength
 
-📊 Exploratory Data Analysis & Visualization
+compactness: mass-radius ratio approximation
 
-We conduct extensive EDA to validate and explore the distribution of the features:
+All data is generated synthetically with controlled distributions and physics-consistent values.
 
-📈 Correlation matrix heatmap (with optimized font scaling and masking)
+-----------------------------------------------
 
-📉 Feature importance barplots (Random Forest-based)
+🧠 Model Details
 
-🌌 Histograms and KDE plots of each physical variable
+Algorithm: 20+ ML models tested, final model is RandomForestClassifier
 
-🧲 Class-wise feature comparison
+Tuning: Performed with GridSearchCV
 
-🧪 Confusion matrix for classification performance
+Categorical Encoding: All numerical; no encoding needed
 
-🧠 Models Tried (20+ total)
+Metrics: Accuracy, Cross-Validation Score
 
-A broad spectrum of machine learning models was tested:
+-----------------------------------------------
 
-✅ Random Forest Classifier (final selected model)
+📊 Data Exploration & Visualization
 
-Support Vector Classifier (SVC)
+To better understand the physical feature space, the following visualizations were generated:
 
-Support Vector Regression (SVR)
+📈 Correlation Matrix Heatmap (with font scaling to resolve overlaps)
 
-Decision Tree Classifier
+📉 Feature Importance Barplot (via Random Forest)
+
+🌠 KDE + Histogram overlays per feature
+
+🧲 Class-wise Distribution Analysis
+
+🧪 Confusion Matrix to analyze prediction breakdown by class
+
+🔬 Models Evaluated
+
+-----------------------------------------------
+
+A total of 20+ classification and regression models were evaluated for performance, including:
+
+Random Forest ✅ (best performing)
+
+Support Vector Machines (SVC, SVR)
+
+Decision Trees
 
 Logistic Regression
 
-K-Nearest Neighbors (KNN)
+K-Nearest Neighbors
 
 Gaussian Naive Bayes
 
-XGBoost
-
-LightGBM
-
 MLPClassifier
 
+XGBoost / LightGBM / Gradient Boosting / AdaBoost
+
 ExtraTrees
-
-Gradient Boosting
-
-AdaBoost
 
 RidgeClassifier
 
 SGDClassifier
 
-and more...
+All models were evaluated using cross-validation and held-out test set performance.
 
-🧪 Final Model: Random Forest Classifier
+-----------------------------------------------
 
-After hyperparameter optimization (via GridSearchCV), the final tuned model achieves:
+📈 Model Performance
 
-Metric
+Model Variant
 
-Score
+Accuracy
 
-Accuracy (test set)
+Cross-Val Score
 
-0.999
-
-Cross-Val Score (CV=10)
+Base Model
 
 1.000
 
-This near-perfect performance is made possible thanks to:
+1.000
 
-Highly separable feature distributions
+Tuned Model
 
-Carefully crafted synthetic physics data
+0.999
 
-Sufficient data per class (balanced)
+1.000
 
-🔧 Tools & Libraries
+The exceptionally high performance is due to:
+
+Clearly separable synthetic feature distributions
+
+Balanced data across 8 well-defined object classes
+
+Highly informative features based on physics principles
+
+-----------------------------------------------
+
+🧰 Libraries Used
 
 Python 3.10+
 
 NumPy / Pandas
 
-Matplotlib / Seaborn
-
 scikit-learn
+
+Seaborn / Matplotlib
 
 statsmodels
 
-📁 File Structure (Recommendation)
+-----------------------------------------------
 
-project-root/
-├── data/
-│   └── synthetic_object_dataset.csv
-├── src/
-│   ├── data_generation.py
-│   ├── model_training.py
-│   ├── eda_visuals.py
-│   └── main.py
-├── results/
-│   ├── plots/
-│   └── models/
-├── README.md
-├── .gitignore
-└── requirements.txt
+✨ Key Highlights
 
-✨ Highlights
+Fully synthetic, physics-consistent dataset generation
 
-✅ Physics-informed synthetic data generation
+Diverse ML experimentation (20+ models tested)
 
-✅ 20+ models evaluated
+Feature importances and interpretability preserved
 
-✅ Perfect CV scores and robust generalization
+Scientific rigor in variable choice and simulation design
 
-✅ Fully explainable features rooted in real physics
+High-performance, generalizable Random Forest classifier
 
-✅ Clean and expandable Python implementation
+-----------------------------------------------
 
-🧠 Future Work
+🔭 Future Improvements
 
-Add real astrophysical data (e.g. LIGO, Gaia) for fine-tuning
+Add noise and imperfect observations to simulate reality
 
-Integrate more advanced models (transformers, PINNs)
+Integrate real data (e.g. from LIGO, Gaia)
 
-Introduce noise and adversarial perturbations for stress testing
+Explore physics-informed neural networks (PINNs, transformers)
+
+-----------------------------------------------
 
 🤝 Contributing
 
-Pull requests and forks are welcome. Open issues if you'd like to request enhancements.
+Forks and pull requests are welcome. Feel free to open issues with suggestions or improvements.
+
+-----------------------------------------------
 
 📜 License
 
