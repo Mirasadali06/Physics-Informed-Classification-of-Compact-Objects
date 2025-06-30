@@ -144,10 +144,10 @@ cross_val_score(rf_model,X_train,y_train,cv = 10).mean()     # Equals 1.
 
 #MODEL TUNING
 
-rf_params = {"max_depth":[1,5,9],
-             "max_features":[1,5,9],
-             "n_estimators":[100,500,900],
-             "min_samples_split":[3,5,7]}
+rf_params = {"max_depth":np.arange(1,10),
+             "max_features":np.arange(1,10),
+             "n_estimators":np.arange(10,1000,10),
+             "min_samples_split":np.arange(1,10),}
 
 rf_cv = GridSearchCV(rf_model,rf_params,cv=10,n_jobs=-1,verbose=2).fit(X_train,y_train)
 rf_tuned = RandomForestClassifier(max_depth=rf_cv.best_params_["max_depth"],
