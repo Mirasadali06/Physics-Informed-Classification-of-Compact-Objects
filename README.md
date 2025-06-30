@@ -1,10 +1,10 @@
 🎯 Physics-Informed Classification of Compact Objects
-
+--------------------------------------------------------
 This project develops a machine learning system to classify astrophysical and theoretical objects based on synthetic data that reflects physical properties such as spacetime curvature, quantum fluctuations, momentum, and more.
 
 -----------------------------------------------
 📁 Dataset Description
-
+-------------------------
 The dataset consists of simulated astrophysical and theoretical objects, including:
 
 Schwarzschild Black Hole
@@ -25,8 +25,8 @@ Primordial Black Hole
 
 -----------------------------------------------
 
-Each object includes the following features:
-
+🎱 Each object includes the following features:
+---------------------------------------------
 mass: simulated rest mass
 
 spin: angular momentum proxy
@@ -48,7 +48,7 @@ All data is generated synthetically with controlled distributions and physics-co
 -----------------------------------------------
 
 🧠 Model Details
-
+---------------------
 Algorithm: 20+ ML models tested, final model is RandomForestClassifier
 
 Tuning: Performed with GridSearchCV
@@ -60,7 +60,7 @@ Metrics: Accuracy, Cross-Validation Score
 -----------------------------------------------
 
 📊 Data Exploration & Visualization
-
+-------------------------------------
 To better understand the physical feature space, the following visualizations were generated:
 
 📈 Correlation Matrix Heatmap (with font scaling to resolve overlaps)
@@ -77,8 +77,8 @@ To better understand the physical feature space, the following visualizations we
 
 -----------------------------------------------
 
-A total of 20+ classification and regression models were evaluated for performance, including:
-
+🌲 A total of 20+ classification and regression models were evaluated for performance, including:
+-----------------------------------------------------------------------------------------------
 Random Forest ✅ (best performing)
 
 Support Vector Machines (SVC, SVR)
@@ -106,24 +106,14 @@ All models were evaluated using cross-validation and held-out test set performan
 -----------------------------------------------
 
 📈 Model Performance
+------------------------
 
-Model Variant
+Model     :                           Base Model              Tuned Model               
+                                                                          
+Accuracy Score      :                 1.000                   0.999        
+                                                                         
+Cross Val Score       :               1.000                   1.000        
 
-Accuracy
-
-Cross-Val Score
-
-Base Model
-
-1.000
-
-1.000
-
-Tuned Model
-
-0.999
-
-1.000
 
 The exceptionally high performance is due to:
 
@@ -136,7 +126,7 @@ Highly informative features based on physics principles
 -----------------------------------------------
 
 🧰 Libraries Used
-
+-----------------------------
 Python 3.10+
 
 NumPy / Pandas
@@ -150,7 +140,7 @@ statsmodels
 -----------------------------------------------
 
 ✨ Key Highlights
-
+------------------------------
 Fully synthetic, physics-consistent dataset generation
 
 Diverse ML experimentation (20+ models tested)
@@ -164,7 +154,7 @@ High-performance, generalizable Random Forest classifier
 -----------------------------------------------
 
 🔭 Future Improvements
-
+------------------------------
 Add noise and imperfect observations to simulate reality
 
 Integrate real data (e.g. from LIGO, Gaia)
@@ -174,11 +164,11 @@ Explore physics-informed neural networks (PINNs, transformers)
 -----------------------------------------------
 
 🤝 Contributing
-
+-------------------------------
 Forks and pull requests are welcome. Feel free to open issues with suggestions or improvements.
 
 -----------------------------------------------
 
 📜 License
-
+-------------------------------
 MIT License
